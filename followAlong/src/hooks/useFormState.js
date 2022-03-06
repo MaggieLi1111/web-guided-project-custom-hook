@@ -1,11 +1,7 @@
 import { useState } from "react";
 
-const useFormState = () => {
-    const [values, setValues] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-    });
+const useFormState = (initialValues) => {
+    const [values, setValues] = useState(initialValues);
 
     const handleChanges = (e) => {
         setValues({

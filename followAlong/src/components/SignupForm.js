@@ -23,9 +23,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
+const initialValues = {
+  firstName: "",
+  lastName: "",
+  email: "",
+}
+
 export default function SignupForm() {
   const classes = useStyles();
-  const [ { firstName, lastName, email }, handleChanges, clearForm ] = useFormState()
+  const [ { firstName, lastName, email }, handleChanges, clearForm ] = useFormState(initialValues);
 
 
   const handleSubmit = e => {
