@@ -4,6 +4,8 @@ import TextField from "@material-ui/core/TextField";
 
 import Button from "../theme/Button";
 
+import useFormState from "../hooks/useFormState";
+
 const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
@@ -23,11 +25,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignupForm() {
   const classes = useStyles();
-  const [firstName, setFirstName] = useState("");
+  const [ firstName, setFirstName, handleChanges ] = useFormState()
 
-  const handleChanges = e => {
-    setFirstName(e.target.value);
-  };
 
   const handleSubmit = e => {
     e.preventDefault();
