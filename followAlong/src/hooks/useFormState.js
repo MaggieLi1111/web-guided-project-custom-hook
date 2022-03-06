@@ -1,19 +1,19 @@
 import { useState } from "react";
 
 const useFormState = () => {
-    const [firstName, setFirstName] = useState("");
+    const [value, setValue] = useState("");
 
     const handleChanges = (e) => {
-        setFirstName(e.target.value)
+        setValue(e.target.value)
     }
 
     const clearForm = e => {
         e.preventDefault();
-        setFirstName("");
+        setValue("");
       };
     
 
-    return [ firstName, setFirstName, handleChanges, clearForm]
+    return [ value, handleChanges, clearForm]
 }
 
 export default useFormState;
