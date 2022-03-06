@@ -1,19 +1,30 @@
 import { useState } from "react";
 
 const useFormState = () => {
-    const [value, setValue] = useState("");
+    const [values, setValues] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+    });
 
     const handleChanges = (e) => {
-        setValue(e.target.value)
-    }
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
+    };
 
     const clearForm = e => {
         e.preventDefault();
-        setValue("");
-      };
-    
+        setValues({
+            firstName: "",
+            lastName: "",
+            email: "",
+        });
+    };
 
-    return [ value, handleChanges, clearForm]
+
+    return [values, handleChanges, clearForm]
 }
 
 export default useFormState;
